@@ -2,6 +2,10 @@ name: 인스타그램 연결 확인
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "checks/instagram-check.txt"
 
 jobs:
   check:
