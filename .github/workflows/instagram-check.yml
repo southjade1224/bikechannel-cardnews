@@ -1,0 +1,15 @@
+name: 인스타그램 연결 확인
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 토큰과 인스타그램 계정 확인 (게시하지 않음)
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python3 scripts/publish_instagram.py --check
